@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отчеты</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            /*background-color: #f0f0f0;*/
+            text-align: center;
+        }
+        h1, h2 {
+            font-family: Arial, sans-serif;
+            color: #363636;
+        }
+        ul {
+            width: 500px;
+            text-align: left;
+            list-style-type: none;
+            padding: 0;
+            margin: auto;
+        }
+        li {
+            margin: 10px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+            font-size: 18px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .section-title {
+            text-align: left;
+            width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 20px;
+            color: #555;
+            margin-top: 20px;
+        }
+    </style>
+
+    <style>
+        /*h2 {*/
+        /*    color: #333;*/
+        /*}*/
+        table {
+            width: 500px;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            background-color: #fff;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        th, td {
+            padding: 12px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #b0c4de;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+
+    <style>
+        img {
+            width: 600px;
+        }
+
+        .network-image {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1>Отчеты о тестировании</h1>
+<div class="section-title">Микрофронтенды</div>
+<ul>
+    <li><a href="microfrontends/bit.html" target="_blank">bit.html</a></li>
+    <li><a href="microfrontends/module-federation.html" target="_blank">module-federation.html</a></li>
+    <li><a href="microfrontends/single-spa.html" target="_blank">single-spa.html</a></li>
+</ul>
+<div class="section-title">Микросервисы</div>
+<ul>
+    <li><a href="microservices/0-nest-run-report.json.html" target="_blank">0-nest-run-report.json.html</a></li>
+    <li><a href="microservices/2-seneca-run-report.json.html" target="_blank">2-seneca-run-report.json.html</a></li>
+    <li><a href="microservices/3-moleculer-logger-run-report.json.html" target="_blank">3-moleculer-logger-run-report.json.html</a></li>
+    <li><a href="microservices/3-moleculer-run-report.json.html" target="_blank">3-moleculer-run-report.json.html</a></li>
+</ul>
+
+<h2>Запросы, генерируемые хост-приложениями микрофронтендов</h2>
+<div class="network-image">
+    <img src="img/bit.png" alt="Запросы, генерируемые хост-приложением Bit">
+    <p>Bit</p>
+</div>
+<div class="network-image">
+    <img src="img/webpack.png" alt="Запросы, генерируемые хост-приложением Webpack Module Federation">
+    <p>Webpack Module Federation</p>
+</div>
+<div class="network-image">
+    <img src="img/singlespa.png" alt="Запросы, генерируемые хост-приложением SingleSpa">
+    <p>SingleSpa</p>
+</div>
+
+
+<h2>Результаты исследования</h2>
+<h3>Table 3.1 – Response Time Measurements (ms)</h3>
+<table>
+    <tr>
+        <th>Service</th>
+        <th>Minimum</th>
+        <th>Maximum</th>
+        <th>Median</th>
+        <th>95th Percentile Max</th>
+        <th>99th Percentile Max</th>
+    </tr>
+    <tr>
+        <td>Nest</td>
+        <td>0</td>
+        <td>8373</td>
+        <td>5065</td>
+        <td>6187</td>
+        <td>7407</td>
+    </tr>
+    <tr>
+        <td>Moleculer</td>
+        <td>1</td>
+        <td>8754</td>
+        <td>2276</td>
+        <td>3828</td>
+        <td>5488</td>
+    </tr>
+    <tr>
+        <td>Seneca</td>
+        <td>1</td>
+        <td>7863</td>
+        <td>5487</td>
+        <td>6702</td>
+        <td>7117</td>
+    </tr>
+</table>
+
+<h3>Table 3.2 – Session Duration Measurements (ms)</h3>
+<table>
+    <tr>
+        <th>Service</th>
+        <th>Minimum</th>
+        <th>Maximum</th>
+        <th>Median</th>
+        <th>95th Percentile Max</th>
+        <th>99th Percentile Max</th>
+    </tr>
+    <tr>
+        <td>Nest</td>
+        <td>0</td>
+        <td>499792</td>
+        <td>484264</td>
+        <td>494047</td>
+        <td>504028</td>
+    </tr>
+    <tr>
+        <td>Moleculer</td>
+        <td>1</td>
+        <td>269300</td>
+        <td>235711</td>
+        <td>260502</td>
+        <td>265765</td>
+    </tr>
+    <tr>
+        <td>Seneca</td>
+        <td>1</td>
+        <td>547077</td>
+        <td>535197</td>
+        <td>546009</td>
+        <td>546009</td>
+    </tr>
+</table>
+
+<h3>Table 3.3 – Reliability Measurements</h3>
+<table>
+    <tr>
+        <th>Service</th>
+        <th>Failed Users</th>
+        <th>ECONNRESET Errors</th>
+        <th>ETIMEDOUT Errors</th>
+    </tr>
+    <tr>
+        <td>Nest</td>
+        <td>3</td>
+        <td>0</td>
+        <td>3</td>
+    </tr>
+    <tr>
+        <td>Moleculer</td>
+        <td>2384</td>
+        <td>2287</td>
+        <td>97</td>
+    </tr>
+    <tr>
+        <td>Seneca</td>
+        <td>0</td>
+        <td>0</td>
+        <td>0</td>
+    </tr>
+</table>
+
+<h3>Table 3.4 – Microfrontends Network Metrics Analysis</h3>
+<table>
+    <tr>
+        <th>Microfrontend</th>
+        <th>Requests</th>
+        <th>Fetch/JS Requests</th>
+        <th>DOM Content Loaded (ms)</th>
+        <th>Load (ms)</th>
+        <th>Finish (ms)</th>
+    </tr>
+    <tr>
+        <td>Bit</td>
+        <td>16</td>
+        <td>5</td>
+        <td>248</td>
+        <td>560</td>
+        <td>611</td>
+    </tr>
+    <tr>
+        <td>Module Federation</td>
+        <td>20</td>
+        <td>10</td>
+        <td>104</td>
+        <td>565</td>
+        <td>563</td>
+    </tr>
+    <tr>
+        <td>SingleSPA</td>
+        <td>14</td>
+        <td>6</td>
+        <td>117</td>
+        <td>696</td>
+        <td>692</td>
+    </tr>
+</table>
+
+<h3>Table 3.5 – Lighthouse Measurements</h3>
+<table>
+    <tr>
+        <th>Microfrontend</th>
+        <th>First Contentful Paint (FCP) (ms)</th>
+        <th>Speed Index (ms)</th>
+        <th>Total Blocking Time (TBT) (ms)</th>
+        <th>Largest Contentful Paint (LCP) (ms)</th>
+        <th>Cumulative Layout Shift (CLS)</th>
+    </tr>
+    <tr>
+        <td>Bit</td>
+        <td>233</td>
+        <td>620</td>
+        <td>9</td>
+        <td>1999</td>
+        <td>0.83</td>
+    </tr>
+    <tr>
+        <td>Module Federation</td>
+        <td>235</td>
+        <td>636</td>
+        <td>7</td>
+        <td>1483</td>
+        <td>0.12</td>
+    </tr>
+    <tr>
+        <td>SingleSPA</td>
+        <td>236</td>
+        <td>652</td>
+        <td>19</td>
+        <td>1733</td>
+        <td>0.32</td>
+    </tr>
+</table>
+
+<h2>Графики метрик</h2>
+<div class="network-image">
+    <img src="img/graph_microservices.png" alt="График микросервисов" style="width: 900px;">
+    <p>Response Time и Session Length для микросервисов</p>
+</div>
+<div class="network-image">
+    <img src="img/seneca.png" alt="График микросервисов">
+    <p>Reliability для микросервисов</p>
+</div>
+
+<h2>Теоретический результат</h2>
+<div class="network-image">
+    <img src="img/theoretic_result.png" alt="График микросервисов">
+    <p>Методика выбора фреймворка</p>
+</div>
+</body>
+</html>
